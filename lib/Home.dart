@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class Test extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  _TestState createState() => _TestState();
+  _HomeState createState() => _HomeState();
 }
 
-class _TestState extends State<Test> {
+class _HomeState extends State<Home> {
   getRecipes() async {
     var res = await http.get("http://192.168.1.18:3012/recipes/labels");
     if (res.statusCode == 200) {

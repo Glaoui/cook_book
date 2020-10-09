@@ -4,7 +4,7 @@ import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/Home.dart';
 import 'package:flutter_auth/main.dart';
 
-void main() => runApp(Test());
+void main() => runApp(Home());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
