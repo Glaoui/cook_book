@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
+
 import 'package:flutter_auth/constants.dart';
 import 'package:flutter_auth/Home.dart';
 import 'package:flutter_auth/main.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: WelcomeScreen(),
+      home: Home(),
     );
   }
 }
