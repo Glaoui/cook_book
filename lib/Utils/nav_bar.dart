@@ -5,6 +5,7 @@ import 'package:flutter_auth/Screens/profile.dart';
 import 'package:flutter_auth/Screens/register.dart';
 import 'package:flutter_auth/Screens/search.dart';
 import 'package:flutter_auth/Screens/splash.dart';
+import 'package:flutter_auth/Utils/app_properties.dart';
 
 class Home_wid extends StatefulWidget {
   @override
@@ -20,11 +21,13 @@ class _HomeState extends State<Home_wid> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Flutter App'),
+        backgroundColor: transparentYellow,
+        title: Text('CookBook'),
       ),
       body: _children[_currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: transparentYellow,
         onTap: onTabTapped, // new
         currentIndex: _currentIndex, // new
         //currentIndex: 0, // this will be set when a new tab is tapped
@@ -34,8 +37,9 @@ class _HomeState extends State<Home_wid> {
             title: new Text('Home'),
           ),
           BottomNavigationBarItem(
+            backgroundColor: Colors.white,
             icon: new Icon(Icons.search),
-            title: new Text('Messages'),
+            title: new Text('Search'),
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.person),

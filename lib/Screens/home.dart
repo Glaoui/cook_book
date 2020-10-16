@@ -1,3 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MenuPage
+class HomePage extends StatelessWidget{
+  Widget build (BuildContext context){
+    return Container (
+      padding: EdgeInsets.all(25.0),
+      child: Text('Home',style: TextStyle(fontSize: 36.0),),
+    ) ;
+  }
+
+
+}

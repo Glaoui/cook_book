@@ -1,6 +1,6 @@
 import 'package:flutter_auth/Utils/app_properties.dart';
-import 'package:flutter_auth/home_widget.dart';
-import 'package:flutter_auth/register.dart' ;
+import 'package:flutter_auth/Utils/nav_bar.dart';
+import 'package:flutter_auth/Screens/register.dart' ;
 import 'package:flutter/material.dart';
 
 
@@ -19,7 +19,7 @@ class _loginPageState extends State<loginPage> {
   @override
   Widget build(BuildContext context) {
     Widget welcomeBack = Text(
-      'Welcome To CookBook,',
+      'Welcome To CookBook',
       style: TextStyle(
           color: Colors.white,
           fontSize: 34.0,
@@ -51,7 +51,7 @@ class _loginPageState extends State<loginPage> {
       child: InkWell(
         onTap: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => Home_wid()));
+              .push(MaterialPageRoute(builder: (_) => Home_wid())); //
         },
         child: Container(
           width: MediaQuery.of(context).size.width / 2,

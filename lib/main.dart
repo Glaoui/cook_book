@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/splash.dart';
+import 'Utils/nav_bar.dart';
 
-import 'package:flutter_auth/constants.dart';
-import 'package:flutter_auth/Home.dart';
-import 'package:flutter_auth/main.dart';
 
-import 'Home_recipes.dart';
-
-void main() => runApp(JsonParseDemo());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+      title: 'Cook Book ',
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Auth',
       theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.white,
+        brightness: Brightness.light,
+       // canvasColor: Colors.transparent,
+       primarySwatch: Colors.blue,
+        fontFamily: "Montserrat",
       ),
-      home: Home(),
+      home: SplashScreen(),
     );
   }
 }
