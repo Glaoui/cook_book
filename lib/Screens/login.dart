@@ -1,5 +1,6 @@
+import 'package:flutter_auth/Screens/home.dart';
 import 'package:flutter_auth/Utils/app_properties.dart';
-import 'package:flutter_auth/Utils/nav_bar.dart';
+import 'package:flutter_auth/UI/nav_bar.dart';
 import 'package:flutter_auth/Screens/register.dart' ;
 import 'package:flutter/material.dart';
 

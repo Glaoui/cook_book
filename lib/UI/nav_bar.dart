@@ -21,13 +21,13 @@ class _HomeState extends State<Home_wid> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: transparentYellow,
+        backgroundColor: limeyellow,
         title: Text('CookBook'),
       ),
       body: _children[_currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: transparentYellow,
+        backgroundColor: limeyellow,
         onTap: onTabTapped, // new
         currentIndex: _currentIndex, // new
         //currentIndex: 0, // this will be set when a new tab is tapped
@@ -35,6 +35,7 @@ class _HomeState extends State<Home_wid> {
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
             title: new Text('Home'),
+
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,

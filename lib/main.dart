@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_auth/Screens/splash.dart';
-import 'Utils/nav_bar.dart';
+import 'UI/nav_bar.dart';
+import 'package:flutter_auth/Utils/app_properties.dart';
 
 
 void main() => runApp(MyApp());
@@ -15,8 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
-       // canvasColor: Colors.transparent,
-       primarySwatch: Colors.blue,
+        canvasColor: Colors.yellow [50],
+        primarySwatch: Colors.red,
         fontFamily: "Montserrat",
       ),
       home: SplashScreen(),
