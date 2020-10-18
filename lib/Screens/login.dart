@@ -1,21 +1,17 @@
 import 'package:flutter_auth/Screens/home.dart';
 import 'package:flutter_auth/Utils/app_properties.dart';
 import 'package:flutter_auth/UI/nav_bar.dart';
-import 'package:flutter_auth/Screens/register.dart' ;
+import 'package:flutter_auth/Screens/register.dart';
 import 'package:flutter/material.dart';
 
-
 class loginPage extends StatefulWidget {
-
   _loginPageState createState() => _loginPageState();
-
 }
+
 class _loginPageState extends State<loginPage> {
-
-  TextEditingController email = TextEditingController(text: 'example@email.com');
+  TextEditingController email =
+      TextEditingController(text: 'example@email.com');
   TextEditingController password = TextEditingController(text: '12345678');
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +39,6 @@ class _loginPageState extends State<loginPage> {
             fontSize: 16.0,
           ),
         ));
-
-
 
     Widget loginButton = Positioned(
       left: MediaQuery.of(context).size.width / 4,
@@ -85,7 +79,6 @@ class _loginPageState extends State<loginPage> {
       ),
     );
 
-
     Widget loginForm = Container(
       height: 240,
       child: Stack(
@@ -112,7 +105,7 @@ class _loginPageState extends State<loginPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: TextField(
-                    controller:  password,
+                    controller: password,
                     style: TextStyle(fontSize: 16.0),
                     obscureText: true,
                   ),
@@ -153,23 +146,18 @@ class _loginPageState extends State<loginPage> {
       ),
     );
 
-
     return Scaffold(
-
       body: Stack(
         children: <Widget>[
-
           Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/background.jpg'),
-                    fit: BoxFit.cover)
-            ),
+                    fit: BoxFit.cover)),
           ),
           Container(
             decoration: BoxDecoration(
               color: transparentYellow,
-
             ),
           ),
           Padding(
