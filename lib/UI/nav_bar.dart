@@ -7,7 +7,16 @@ import 'package:flutter_auth/Screens/search.dart';
 import 'package:flutter_auth/Screens/splash.dart';
 import 'package:flutter_auth/Utils/app_properties.dart';
 
+import '../Models/meal.dart';
+import '../Screens/categories_screen.dart';
+import '../Screens/favorites_screen.dart';
+import '../widgets/main_drawer.dart';
+
 class Home_wid extends StatefulWidget {
+  static const routeName = '/nav-screen';
+  final List<Meal> favoriteMeals;
+
+  Home_wid(this.favoriteMeals);
   @override
   State<StatefulWidget> createState() {
     return _HomeState();
@@ -15,47 +24,67 @@ class Home_wid extends StatefulWidget {
 }
 
 class _HomeState extends State<Home_wid> {
-  int _currentIndex = 0;
-  final List<Widget> _children = [HomePage(),SearchPage(),ProfilePage()];
+  List<Map<String, Object>> _pages;
+  int _selectedPageIndex = 0;
+
+  @override
+  void initState() {
+    _pages = [
+      {
+        'page': CategoriesScreen(),
+        'title': 'Categories',
+      },
+      {
+        'page': FavoritesScreen(widget.favoriteMeals),
+        'title': 'Your Favorite',
+      },
+      {
+        'page': ProfilePage(),
+        'title': 'Your Profile',
+      },
+    ];
+    super.initState();
+  }
+
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: limeyellow,
-        title: Text('CookBook'),
+        title: Text(_pages[_selectedPageIndex]['title']),
       ),
-      body: _children[_currentIndex],
-
+      drawer: MainDrawer(),
+      body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: limeyellow,
-        onTap: onTabTapped, // new
-        currentIndex: _currentIndex, // new
-        //currentIndex: 0, // this will be set when a new tab is tapped
+        onTap: _selectPage,
+        backgroundColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Theme.of(context).accentColor,
+        currentIndex: _selectedPageIndex,
+        // type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-
-            icon: new Icon(Icons.home),
-            title: new Text('Home'),
-
+            backgroundColor: Theme.of(context).primaryColor,
+            icon: Icon(Icons.category),
+            title: Text('Categories'),
           ),
           BottomNavigationBarItem(
-
-            icon: new Icon(Icons.search),
-            title: new Text('Search'),
+            backgroundColor: Theme.of(context).primaryColor,
+            icon: Icon(Icons.star),
+            title: Text('Favorites'),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              title: Text('Profile')
-          )
+            backgroundColor: Theme.of(context).primaryColor,
+            icon: Icon(Icons.person),
+            title: Text('Profile'),
+          ),
         ],
       ),
     );
   }
-
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
 }
-

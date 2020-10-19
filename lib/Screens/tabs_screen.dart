@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/profile.dart';
 
 import '../widgets/main_drawer.dart';
 import './favorites_screen.dart';
@@ -29,6 +30,10 @@ class _TabsScreenState extends State<TabsScreen> {
       {
         'page': FavoritesScreen(widget.favoriteMeals),
         'title': 'Your Favorite',
+      },
+      {
+        'page': ProfilePage(),
+        'title': 'Your Profile',
       },
     ];
     super.initState();
@@ -65,6 +70,11 @@ class _TabsScreenState extends State<TabsScreen> {
             backgroundColor: Theme.of(context).primaryColor,
             icon: Icon(Icons.star),
             title: Text('Favorites'),
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Theme.of(context).primaryColor,
+            icon: Icon(Icons.person),
+            title: Text('Profile'),
           ),
         ],
       ),

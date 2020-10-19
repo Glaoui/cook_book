@@ -1,4 +1,6 @@
+import 'package:flutter_auth/Models/meal.dart';
 import 'package:flutter_auth/Screens/home.dart';
+import 'package:flutter_auth/Screens/tabs_screen.dart';
 import 'package:flutter_auth/Utils/app_properties.dart';
 import 'package:flutter_auth/UI/nav_bar.dart';
 import 'package:flutter_auth/Screens/register.dart';
@@ -12,6 +14,7 @@ class _loginPageState extends State<loginPage> {
   TextEditingController email =
       TextEditingController(text: 'example@email.com');
   TextEditingController password = TextEditingController(text: '12345678');
+  List<Meal> _favoriteMeals = [];
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +48,8 @@ class _loginPageState extends State<loginPage> {
       bottom: 40,
       child: InkWell(
         onTap: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => Home_wid())); //
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (_) => TabsScreen(_favoriteMeals))); //
         },
         child: Container(
           width: MediaQuery.of(context).size.width / 2,

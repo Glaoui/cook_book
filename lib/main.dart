@@ -95,14 +95,14 @@ class _MyAppState extends State<MyApp> {
             )),
       ),
       // home: CategoriesScreen(),
-      initialRoute: '/', // default is '/'
       routes: {
-        '/': (ctx) => TabsScreen(_favoriteMeals),
+        TabsScreen.routeName: (ctx) => TabsScreen(_favoriteMeals),
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
         MealDetailScreen.routeName: (ctx) =>
             MealDetailScreen(_toggleFavorite, _isMealFavorite),
         FiltersScreen.routeName: (ctx) => FiltersScreen(_filters, _setFilters),
+        Home_wid.routeName: (ctx) => Home_wid(_favoriteMeals),
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);
@@ -115,7 +115,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
-          builder: (ctx) => CategoriesScreen(),
+          builder: (ctx) => SplashScreen(),
         );
       },
     );
