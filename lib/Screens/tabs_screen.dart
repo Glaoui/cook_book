@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/Screens/HomePage.dart';
 import 'package:flutter_auth/Screens/profile.dart';
 
 import '../widgets/main_drawer.dart';
@@ -23,6 +24,10 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   void initState() {
     _pages = [
+      {
+        'page': HomePage1(),
+        'title': 'Categories',
+      },
       {
         'page': CategoriesScreen(),
         'title': 'Categories',
@@ -61,6 +66,11 @@ class _TabsScreenState extends State<TabsScreen> {
         currentIndex: _selectedPageIndex,
         // type: BottomNavigationBarType.fixed,
         items: [
+          BottomNavigationBarItem(
+            backgroundColor: Theme.of(context).primaryColor,
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
             icon: Icon(Icons.category),
