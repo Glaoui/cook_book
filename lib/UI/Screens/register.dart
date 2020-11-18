@@ -1,5 +1,7 @@
+import 'package:flutter_auth/Screens/login.dart';
 import 'package:flutter_auth/Utils/app_properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/services.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -7,12 +9,21 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  TextEditingController email = TextEditingController(text: 'example@email.com');
+  TextEditingController _email = TextEditingController(text: '');
 
-  TextEditingController password = TextEditingController(text: '12345678');
+  TextEditingController _password = TextEditingController(text: '');
 
-  TextEditingController cmfPassword = TextEditingController(text: '12345678');
+  TextEditingController _fullName = TextEditingController(text: '');
 
+
+  void displayDialog(context, title, text) => showDialog(
+    context: context,
+    builder: (context) =>
+        AlertDialog(
+            title: Text(title),
+            content: Text(text)
+        ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +58,23 @@ class _RegisterPageState extends State<RegisterPage> {
       left: MediaQuery.of(context).size.width / 4,
       bottom: 40,
       child: InkWell(
-        onTap: () {
+        onTap: () async {
+          var username = _fullName.text;
+          var email = _email.text;
+          var password = _password.text;
+          var rsp = await Services.Register(username ,email, password);
+          if (rsp == null ){
+            print('oooops ..... register failed ');
+            displayDialog(context, "An Error Occurred", "Please verified your input ");
+          }else if ( rsp.containsKey('id')) {
+            //SharedPreferences prefs = await SharedPreferences.getInstance();
+           // prefs.setString("username",rsp['username'] );
+           // print('********' + prefs.getString("username"));
+            print(rsp);
+            print('YaaaPpP...register Succes');
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) =>  loginPage()));
+          }
         //  Navigator.of(context).push(MaterialPageRoute(builder: (_) => ForgotPasswordPage()));
         },
         child: Container(
@@ -94,22 +121,31 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: TextField(
-                    controller: email,
+                    decoration: InputDecoration(
+                        hintText: 'Enter your name...'
+                    ),
+                    controller: _fullName,
                     style: TextStyle(fontSize: 16.0),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: TextField(
-                    controller: password,
+                    decoration: InputDecoration(
+                        hintText: 'Enter your email...'
+                    ),
+                    controller: _email,
                     style: TextStyle(fontSize: 16.0),
-                    obscureText: true,
+
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: TextField(
-                    controller: cmfPassword,
+                    decoration: InputDecoration(
+                        hintText: 'Enter your password...'
+                    ),
+                    controller: _password,
                     style: TextStyle(fontSize: 16.0),
                     obscureText: true,
                   ),

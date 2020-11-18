@@ -76,7 +76,7 @@ class MealDetailScreen extends StatelessWidget {
                       children: [
                         ListTile(
                           leading: CircleAvatar(
-                            child: Text('# ${(index + 1)}'),
+                            child: Text(' ${(index + 1)}'),
                           ),
                           title: Text(
                             selectedMeal.steps[index],

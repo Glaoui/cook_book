@@ -1,20 +1,29 @@
 import 'package:flutter_auth/Models/meal.dart';
-import 'package:flutter_auth/Screens/home.dart';
 import 'package:flutter_auth/Screens/tabs_screen.dart';
 import 'package:flutter_auth/Utils/app_properties.dart';
-import 'package:flutter_auth/UI/nav_bar.dart';
 import 'package:flutter_auth/Screens/register.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class loginPage extends StatefulWidget {
   _loginPageState createState() => _loginPageState();
 }
 
 class _loginPageState extends State<loginPage> {
-  TextEditingController email =
-      TextEditingController(text: 'example@email.com');
-  TextEditingController password = TextEditingController(text: '12345678');
+
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
   List<Meal> _favoriteMeals = [];
+
+  void displayDialog(context, title, text) => showDialog(
+    context: context,
+    builder: (context) =>
+        AlertDialog(
+            title: Text(title),
+            content: Text(text)
+        ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +56,30 @@ class _loginPageState extends State<loginPage> {
       left: MediaQuery.of(context).size.width / 4,
       bottom: 40,
       child: InkWell(
-        onTap: () {
-          Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (_) => TabsScreen(_favoriteMeals))); //
+        onTap: ()async {
+
+            var email = _email.text;
+            var password = _password.text;
+
+
+            var rsp = await Services.logIn(email, password);
+
+            if (rsp == null ){
+              print('oooops ..... login failed ');
+              displayDialog(context, "An Error Occurred", "No account was found matching that username and password");
+            }else if ( rsp.containsKey('id')) {
+             SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.setString("username",rsp['username'] );
+              print('********' + prefs.getString("username"));
+              print(rsp);
+              print('YaaaPpP...Login Succes');
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_) => TabsScreen(_favoriteMeals)));
+            }
+
+        //print(_email.text);
+        //print(_password.text);
+        //Services.logIn(_email.text , _password.text) ;
         },
         child: Container(
           width: MediaQuery.of(context).size.width / 2,
@@ -85,8 +115,10 @@ class _loginPageState extends State<loginPage> {
     Widget loginForm = Container(
       height: 240,
       child: Stack(
+
         children: <Widget>[
           Container(
+
             height: 160,
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.only(left: 32.0, right: 12.0),
@@ -101,14 +133,20 @@ class _loginPageState extends State<loginPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: TextField(
-                    controller: email,
+                    decoration: InputDecoration(
+                        hintText: 'Enter your email...'
+                    ),
+                    controller: _email,
                     style: TextStyle(fontSize: 16.0),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: TextField(
-                    controller: password,
+                    decoration: InputDecoration(
+                        hintText: 'Enter your password...'
+                    ),
+                    controller: _password,
                     style: TextStyle(fontSize: 16.0),
                     obscureText: true,
                   ),
@@ -135,7 +173,10 @@ class _loginPageState extends State<loginPage> {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_) => RegisterPage())); //
+            },
             child: Text(
               'Reset password',
               style: TextStyle(
