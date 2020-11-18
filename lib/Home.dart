@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   getRecipes() async {
     var res = await http.get("http://192.168.1.18:3012/recipes/labels");
 
-    ;
+
 
     if (res.statusCode == 200) {
       var jsonObj = json.decode(res.body);

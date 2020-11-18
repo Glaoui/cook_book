@@ -1,5 +1,5 @@
 import 'package:flutter_auth/Utils/app_properties.dart';
-import 'package:flutter_auth/Screens/login.dart';
+import 'package:flutter_auth/UI/Screens/login.dart';
 
 import 'package:flutter/material.dart';
 

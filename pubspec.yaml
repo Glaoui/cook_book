@@ -19,7 +19,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
+
 
   
   # The following adds the Cupertino Icons font to your application.
@@ -27,7 +27,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_svg: ^0.19.0
   http:
-
+  shared_preferences: ^0.5.1+2
+  font_awesome_flutter: ^8.10.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -59,6 +60,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+     - family: MyCustomIcons
+     - fonts:
+        - asset: assets/fonts/Servings.ttf
      - family: Raleway
        fonts:
         - asset: assets/fonts/Raleway-Regular.ttf

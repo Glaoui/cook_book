@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/HomePage.dart';
-import 'package:flutter_auth/Screens/profile.dart';
+import 'package:flutter_auth/UI/Screens/HomePage.dart';
+import 'package:flutter_auth/Ui/Screens/profile.dart';
 
 import '../widgets/main_drawer.dart';
-import './favorites_screen.dart';
-import './categories_screen.dart';
-import '../Models/meal.dart';
+import 'favorites_screen.dart';
+import 'categories_screen.dart';
+import 'package:flutter_auth/Models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
   static const routeName = '/tabs-screen';

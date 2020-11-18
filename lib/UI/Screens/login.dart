@@ -1,7 +1,7 @@
 import 'package:flutter_auth/Models/meal.dart';
-import 'package:flutter_auth/Screens/tabs_screen.dart';
+import 'package:flutter_auth/UI/Screens/tabs_screen.dart';
 import 'package:flutter_auth/Utils/app_properties.dart';
-import 'package:flutter_auth/Screens/register.dart';
+import 'package:flutter_auth/Ui/Screens/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/widgets/SearchWidget.dart';
+import 'package:flutter_auth/UI/widgets/SearchWidget.dart';
 
-import 'package:flutter_auth/widgets/BestFoodWidget.dart';
-import 'package:flutter_auth/widgets/PopularFoodsWidget.dart';
+import 'package:flutter_auth/UI/widgets/BestFoodWidget.dart';
+import 'package:flutter_auth/UI/widgets/PopularFoodsWidget.dart';
 //import 'package:flutter_auth/widgets/BottomNavBarWidget.dart';
 import 'package:flutter_auth/Animation/ScaleRoute.dart';
 

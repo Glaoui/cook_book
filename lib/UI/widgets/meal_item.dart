@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Screens/meal_detail_screen.dart';
-import '../Models/meal.dart';
+import 'package:flutter_auth/Models/meal.dart';
 
 class MealItem extends StatelessWidget {
   final String id;

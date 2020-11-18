@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_auth/Screens/splash.dart';
-import 'UI/nav_bar.dart';
+import 'package:flutter_auth/UI/Screens/splash.dart';
+
 import 'package:flutter_auth/Utils/app_properties.dart';
 import './dummy_data.dart';
-import './Screens/tabs_screen.dart';
-import './Screens/meal_detail_screen.dart';
-import './Screens/category_meals_screen.dart';
-import './Screens/filters_screen.dart';
-import './Screens/categories_screen.dart';
+import './Ui/Screens/tabs_screen.dart';
+import './Ui/Screens/meal_detail_screen.dart';
+import './Ui/Screens/category_meals_screen.dart';
+import './Ui/Screens/filters_screen.dart';
+import './Ui/Screens/categories_screen.dart';
 import './Models/meal.dart';
 
 void main() => runApp(MyApp());
@@ -77,8 +77,8 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
 
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        accentColor: Colors.amber,
+        primarySwatch: Colors.red,
+        accentColor: Colors.white,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -102,7 +102,7 @@ class _MyAppState extends State<MyApp> {
         MealDetailScreen.routeName: (ctx) =>
             MealDetailScreen(_toggleFavorite, _isMealFavorite),
         FiltersScreen.routeName: (ctx) => FiltersScreen(_filters, _setFilters),
-        Home_wid.routeName: (ctx) => Home_wid(_favoriteMeals),
+
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);

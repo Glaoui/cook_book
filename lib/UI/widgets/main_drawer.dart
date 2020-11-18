@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/tabs_screen.dart';
+import 'package:flutter_auth/UI/Screens/tabs_screen.dart';
 
 import '../Screens/filters_screen.dart';
 

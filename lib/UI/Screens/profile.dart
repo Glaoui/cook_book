@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_auth/widgets/BestFoodWidget.dart';
-import 'package:flutter_auth/widgets/PopularFoodsWidget.dart';
+import 'package:flutter_auth/UI/widgets/BestFoodWidget.dart';
+import 'package:flutter_auth/UI/widgets/PopularFoodsWidget.dart';
 class ProfilePage extends StatefulWidget{
 
   @override
