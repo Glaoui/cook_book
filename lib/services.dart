@@ -9,8 +9,8 @@ import 'package:flutter_auth/models/Labels.dart';
 
 class Services {
   //
-     static const String url = "http://192.168.1.18:3012/";
-    static const String baseUrl = 'http://192.168.43.198:3012/';
+  static const String url = "http://192.168.1.2:3012/";
+  static const String baseUrl = 'http://192.168.1.2:3012/';
   static Future<List<Labels>> getLabels() async {
     try {
       final response = await http.get(url);
@@ -25,70 +25,60 @@ class Services {
     }
   }
 
-   static Future logIn(String email, String password) async {
-     try {
-       var res = await http.post(
+  static Future logIn(String email, String password) async {
+    try {
+      var res = await http.post(
+        baseUrl + 'users/signin',
+        headers: <String, String>{
+          'Content-Type': 'application/json ; charset=UTF-8'
+        },
+        body:
+            jsonEncode(<String, String>{"email": email, "password": password}),
+      );
+      print(baseUrl + 'users/signin');
+      //return convertedDatatoJson;
+      if (res.statusCode == 200) {
+        var convertedDatatoJson = jsonDecode(res.body);
+        return convertedDatatoJson;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      return null;
+    }
+  }
 
-         baseUrl + 'users/signin',
+  static Future Register(String username, String email, String password) async {
+    var res = await http.post(
+      baseUrl + 'users/insert',
+      headers: <String, String>{
+        'Content-Type': 'application/json ; charset=UTF-8'
+      },
+      body: jsonEncode(<String, String>{
+        "username": username,
+        "email": email,
+        "password": password
+      }),
+    );
+    print(baseUrl + 'users/insert');
 
-         headers: <String, String>{
-           'Content-Type': 'application/json ; charset=UTF-8'
-         },
-         body: jsonEncode(<String, String>{
-           "email": email,
-           "password": password
-         }),
-       );
-       print(baseUrl + 'users/signin');
-          //return convertedDatatoJson;
-       if (res.statusCode == 200) {
-         var convertedDatatoJson = jsonDecode(res.body);
-         return convertedDatatoJson;
-       } else {
-         return null;
-       }
-     } catch (e)
-     {
-       return null;
-     }
-   }
+    if (res.statusCode == 200) {
+      var convertedDatatoJson = jsonDecode(res.body);
+      return convertedDatatoJson;
+    } else {
+      return null;
+    }
+  }
 
-     static Future Register ( String username ,String email, String password) async {
-
-         var res = await http.post(
-
-           baseUrl + 'users/insert',
-
-           headers: <String, String>{
-             'Content-Type': 'application/json ; charset=UTF-8'
-           },
-           body: jsonEncode(<String, String>{
-             "username" : username ,
-             "email": email,
-             "password": password
-           }),
-         );
-         print(baseUrl + 'users/insert');
-
-         if (res.statusCode == 200) {
-           var convertedDatatoJson = jsonDecode(res.body);
-           return convertedDatatoJson;
-         } else {
-           return null;
-         }
-
-     }
-
-     static Future<List<Recipe>> getTopRecipes() async {
-       var res = await http.get(baseUrl + 'recipes/top');
-       print(baseUrl + 'recipes/top');
-       if (res.statusCode == 200) {
-         List jsonResponse = jsonDecode(res.body);
-         print(res.body);
-         return jsonResponse.map((recipe) => Recipe.fromJson(recipe))
-             .toList();
-       } else {
-         throw "Failed to load Recipe list";
-       }
-     }
+  static Future<List<Recipe>> getTopRecipes() async {
+    var res = await http.get(baseUrl + 'recipes/top');
+    print(baseUrl + 'recipes/top');
+    if (res.statusCode == 200) {
+      List jsonResponse = jsonDecode(res.body);
+      print(res.body);
+      return jsonResponse.map((recipe) => Recipe.fromJson(recipe)).toList();
+    } else {
+      throw "Failed to load Recipe list";
+    }
+  }
 }
