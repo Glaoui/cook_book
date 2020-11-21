@@ -57,7 +57,7 @@ class _AddRState extends State<AddR> {
                                   Image.network(
                                     "http://192.168.1.2:3012/public/images/" +
                                         snapshot.data[index]["image_url"],
-                                    fit: BoxFit.fill,
+                                    fit: BoxFit.contain,
                                   ),
                                   IconButton(
                                     icon: Icon(Icons.delete),

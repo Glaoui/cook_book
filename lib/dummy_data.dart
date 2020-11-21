@@ -8,52 +8,65 @@ const DUMMY_CATEGORIES = const [
     id: 'c1',
     title: 'Healthy',
     color: Colors.purple,
+    url:
+        "https://www.lifelinescreening.com/-/media/project/life-line-screening/life-line-screening/6-health-education/articles/diet-and-nutrition/fruits-and-vegetables.jpg?h=429&la=en&w=600&hash=DCDC27240C6180DC4FBE7B7FA4B7E8EA231627CA",
   ),
   Category(
     id: 'c2',
     title: 'Vegetarian',
     color: Colors.red,
+    url:
+        "https://blog.busuu.com/wp-content/uploads/2019/02/how-to-say-vegan-vegetarian-different-languages-1024x682.jpg",
   ),
   Category(
     id: 'c3',
     title: 'Breakfast',
     color: Colors.orange,
+    url:
+        "https://simply-delicious-food.com/wp-content/uploads/2018/10/breakfast-board-2.jpg",
   ),
   Category(
-    id: 'c4',
-    title: 'Dinner',
-    color: Colors.amber,
-  ),
+      id: 'c4',
+      title: 'Dinner',
+      color: Colors.amber,
+      url:
+          "https://img.bestrecipes.com.au/misxCnaa/w643-h428-cfill-q90/br/2019/03/sausage-and-mushroom-stroganoff-951238-2.jpg"),
   Category(
-    id: 'c5',
-    title: 'Lunch',
-    color: Colors.blue,
-  ),
+      id: 'c5',
+      title: 'Lunch',
+      color: Colors.blue,
+      url:
+          "https://i2.wp.com/www.eatthis.com/wp-content/uploads/2020/03/healthy-lunch-ideas-recipes-meal-prep.jpg?resize=800%2C450&ssl=1"),
   Category(
-    id: 'c6',
-    title: 'Dessert',
-    color: Colors.green,
-  ),
+      id: 'c6',
+      title: 'Dessert',
+      color: Colors.green,
+      url:
+          "https://www.brit.co/media-library/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yMTIzODkwOC9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTYxMjk1ODI4Mn0.jnRXx6ZMbuqGza5E1cNwK_5vrlhEj3hOkgXoia-_-kg/image.jpg?width=600"),
   Category(
-    id: 'c7',
-    title: 'Date Night',
-    color: Colors.lightBlue,
-  ),
+      id: 'c7',
+      title: 'Date Night',
+      color: Colors.lightBlue,
+      url:
+          "https://hips.hearstapps.com/del.h-cdn.co/assets/16/10/1600x800/landscape-1457724689-marry-me-chicken-4.jpg?resize=980:*"),
   Category(
-    id: 'c8',
-    title: 'Cheap',
-    color: Colors.lightGreen,
-  ),
+      id: 'c8',
+      title: 'Cheap',
+      color: Colors.lightGreen,
+      url:
+          "https://wisebread-killeracesmedia.netdna-ssl.com/files/fruganomics/imagecache/605x340/blog-images/iStock_000040083502_Large.jpg"),
   Category(
-    id: 'c9',
-    title: 'Easy',
-    color: Colors.pink,
-  ),
+      id: 'c9',
+      title: 'Easy',
+      color: Colors.pink,
+      url:
+          "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/chicken-fajitas-horizontal-jpg-1522721531.jpg?crop=1.00xw:0.752xh;0,0.118xh&resize=980:*"),
   Category(
-    id: 'c10',
-    title: 'Fast',
-    color: Colors.teal,
-  ),
+      id: 'c10',
+      title: 'Fast',
+      color: Colors.teal,
+      url:
+          "https://i2.wp.com/gimmedelicious.com/wp-content/uploads/2019/12/15-Minute-Chicken-Pasta-9.jpg"),
 ];
 
 const DUMMY_MEALS = const [
